@@ -1,0 +1,59 @@
+version: '3.5'
+
+services:
+  backend:
+    build: "${PWD}/backend/."
+    restart: unless-stopped
+    ports:
+      - 8083:8080
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DB_HOST=db
+      - DB_USER=lapis
+      - DB_PASSWORD=NYC7YEvzFvianNBiEJfg
+      - DB_NAME=lapis
+    volumes:
+      - "${PWD}/backend/src:/usr/local/openresty/site/lualib"
+      - frontend-build:/app/frontend
+  frontend:
+    image: node:14
+    user: node
+    volumes:
+      - frontend-build:/usr/src/output
+      - .:/usr/src/service
+    environment:
+      - NODE_ENV=development
+    working_dir: /usr/src/service
+    command: yarn watch
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=lapis
+      - POSTGRES_PASSWORD=NYC7YEvzFvianNBiEJfg
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "lapis"]
+      interval: 10s
+      start_period: 30s
+  # db_admin:
+  #   image: dpage/pgadmin4:latest
+  #   ports:
+  #     - 5050:5050
+  #   volumes:
+  #     - /tmp/servers.json:/pgadmin4/servers.json
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=lapis@domain.com
+  #     - PGADMIN_DEFAULT_PASSWORD=SuperSecret
+  #     - PGADMIN_LISTEN_PORT=5050
+
+volumes:
+  db:
+  frontend-build:
+    driver: local
+    driver_opts:
+      type: "tmpfs"
+      device: "tmpfs"
+      o: "size=256m,uid=1000"

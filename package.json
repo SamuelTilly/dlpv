@@ -1,0 +1,30 @@
+{
+  "name": "my-application",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "parcel frontend/index.html",
+    "watch": "parcel watch frontend/index.html",
+    "build": "parcel build frontend/index.html"
+  },
+  "targets": {
+    "default": {
+      "distDir": "../output"
+    }
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-vue": "^2.0.0",
+    "eslint": "^8.1.0",
+    "eslint-plugin-vue": "^7.20.0",
+    "parcel": "^2.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
