@@ -1,18 +1,14 @@
 # `DLPV`
 
-Skeleton for a Docker+Lapis+PostgreSQL+Vue application. This project is just for me to play with, nothing serious but if it can inspire someone that would be a win.
+Skeleton for a Docker+Lapis+PostgreSQL+Vue application. This project is just for me to play with, not to be taken serious.
 
 Features:
 
-* Backend
-    * nginx
-    * OpenResty
-    * LuaJIT
-    * Lapis
-
-* Frontend
-    * Parcel with SWC
-    * Vue 3.0
+* [Keycloak](https://www.keycloak.org/)
+* [Lapis](https://leafo.net/lapis/)
+* [Parcel](https://parceljs.org/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Vue](https://vuejs.org/)
 
 ## Install
 Docker is used for development and installation of dependencies, this is too keep everything

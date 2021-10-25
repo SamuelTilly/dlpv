@@ -7,6 +7,4 @@ WORKDIR /app
 
 RUN lapis new --lua
 
-COPY nginx.conf .
-
 CMD lapis server

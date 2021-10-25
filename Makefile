@@ -1,8 +1,8 @@
 install:
-	docker-compose run --rm frontend yarn
+	docker-compose run --rm app yarn
 build:
-	docker-compose run --rm frontend yarn build
+	docker-compose run --rm app yarn build
 migrate:
-	docker-compose run --rm backend lapis migrate development
+	docker-compose run --rm api lapis migrate development
 dev:
-	docker-compose up
+	docker-compose up --build

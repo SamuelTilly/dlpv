@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "parcel frontend/index.html",
-    "watch": "parcel watch frontend/index.html",
-    "build": "parcel build frontend/index.html"
+    "serve": "parcel app/index.html",
+    "watch": "parcel watch app/index.html",
+    "build": "parcel build app/index.html"
   },
   "targets": {
     "default": {
