@@ -32,7 +32,7 @@ services:
     volumes:
       - api-db:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "$API_DB_USER"]
+      test: ["CMD", "pg_isready", "-U", "$API_DB_USER", "-d", "$API_DB_NAME"]
       interval: 10s
       start_period: 30s
 
@@ -61,7 +61,7 @@ services:
     volumes:
       - keycloak-db:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "$KEYCLOAK_DB_USER"]
+      test: ["CMD", "pg_isready", "-U", "$KEYCLOAK_DB_USER", "-d", "$KEYCLOAK_DB_NAME"]
       interval: 10s
       start_period: 30s
 
