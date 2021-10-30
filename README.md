@@ -11,6 +11,9 @@ Features:
 * [Vue](https://vuejs.org/)
 
 ## Install
+
+Copy and rename `.env.example` to `.env`, replace all instances of _SuperSecret_ with a proper password.
+
 Docker is used for development and installation of dependencies, this is too keep everything
 super simple. Before starting development all necessary dependencies needs to be installed using the following command:
 
@@ -23,3 +26,11 @@ super simple. Before starting development all necessary dependencies needs to be
 ## Production
 
 TBD
+
+## TODO
+
+### Keycloak
+
+* Figure out how to theme
+* Automatic provision realms
+* Use keycloak authentication in app and api

@@ -1,5 +1,7 @@
 local config = require("lapis.config")
+
 config("development", {
+  -- Database connection
   postgres = {
     host = os.getenv("DB_HOST"),
     user = os.getenv("DB_USER"),
